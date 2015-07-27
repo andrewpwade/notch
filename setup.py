@@ -52,6 +52,7 @@ setuptools.setup(
                       'PyYAML >= 3.0',
                       'tornado == 1.2.1',
                       'setuptools',
+                      'tornadorpc',
                       ],
     tests_require=tests_require,
     extras_require={'test': tests_require},
