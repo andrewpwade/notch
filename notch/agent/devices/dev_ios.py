@@ -54,6 +54,7 @@ class IosDevice(device.Device):
     PROMPT = re.compile(r'\S+\s?[>#]')
     ERR_NOT_SETUP = 'Password required, but none set'
     ERR_FULL = 'Sorry, session limit reached'
+    CMD_DISABLE_PAGING = 'terminal length 0'
 
     ENABLE_CHAR = '#'
 
@@ -195,7 +196,7 @@ class IosDevice(device.Device):
 
     def _disable_pager(self):
         logging.debug('Disabling pager on %r', self.name)
-        self._transport.command('terminal length 0', self._prompt)
+        self._transport.command(self.CMD_DISABLE_PAGING, self._prompt)
         logging.debug('Disabled pager on %r', self.name)
 
     def _command(self, command, mode=None):
